@@ -15,8 +15,12 @@ const books = require("./books.json");
  ****************************************************************/
 function numberOfAuthors(book) {
   // Your code here
+  // return book.find(author => {
+  //   book.authors.filter (a => a.author.length)
+  // });
+  return book.authors.length;
 }
-// console.log(numberOfAuthors(books[0]))
+ //console.log(numberOfAuthors(books[0]))
 
 /**************************************************************
  * getBookById(bookId, books):
@@ -28,6 +32,9 @@ function numberOfAuthors(book) {
  ****************************************************************/
 function getBookById(bookId, books) {
   // Your code here
+  //return books.find (bid => bid === bookId);
+  return books.find(element => element.id === bookId);
+
 }
 // console.log(getBookById(38, books))
 
@@ -41,6 +48,7 @@ function getBookById(bookId, books) {
  ****************************************************************/
 function getbookByauthorName(authorName, books) {
   // Your code here
+  return books.find (book => book.authors.some(author => author.name == authorName));
 }
 // console.log(getbookByauthorName("Neil Gaiman", books));
 
@@ -55,6 +63,8 @@ function getbookByauthorName(authorName, books) {
   ****************************************************************/
 function addSummaryToBook(summary, book) {
   // Your code here
+book.summary = summary;
+return book;
 }
 // console.log(addSummaryToBook("this is good book about i dont remember what", books[0]));
 
@@ -68,6 +78,8 @@ function addSummaryToBook(summary, book) {
   ****************************************************************/
 function getBookProperty(property, book) {
   // Your code here
+  return book[property];
+
 }
 // console.log(getBookProperty("color", books[0]));
 // console.log(getBookProperty("title", books[0]));
